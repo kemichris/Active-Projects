@@ -42,9 +42,9 @@ class App extends Component {
       this.setState({ tether })
 
       let tetherBalance = await tether.methods.balanceOf(this.state.account).call()
-      this.setState({ tetherbalance: tetherBalance.toString() })
+      this.setState({ tetherBalance: tetherBalance.toString() })
 
-      console.log({ tetherbalance: tetherBalance })
+      console.log({ tetherBalance: tetherBalance })
 
 
     } else {
@@ -88,6 +88,27 @@ class App extends Component {
 
   }
 
+  // staking function 
+  stakeTokens = (amount) => {
+    this.setState({ loading: true })
+    this.state.tether.methods.approve(this.state.decentralBank._address, amount).send({ from: this.state.account }).on("transactionHash", (hash) => {
+      this.state.decentralBank.methods.deposit(amount).send({ from: this.state.account }).on("transactionHash", (hash) => {
+        this.setState({ loading: false })
+      })
+    })
+
+  }
+
+  // unstaking function 
+  unstakeTokens = () => {
+    this.setState({ loading: true })
+    this.state.decentralBank.methods.withdraw().send({ from: this.state.account }).on("transactionHash", (hash) => {
+      this.setState({ loading: false })
+    })
+
+  }
+
+
   constructor(props) {
     super(props)
     this.state = {
@@ -104,11 +125,15 @@ class App extends Component {
 
   render() {
     let content
-    {this.state.loading ? content = <p id='loader' className='text-center' style={{margin:"30px"}}>Loading Please...</p> : content =<Main
-    tetherBalance ={this.state.tetherBalance}
-    rwdBalance ={this.state.rwdBalance}
-    stakingBalance ={this.state.stakingBalance}
-    />}
+    {
+      this.state.loading ? content = <p id='loader' className='text-center' style={{ margin: "30px" }}>Loading Please...</p> : content = <Main
+        tetherBalance={this.state.tetherBalance}
+        rwdBalance={this.state.rwdBalance}
+        stakingBalance={this.state.stakingBalance}
+        stakeTokens={this.stakeTokens}
+        unstakeTokens ={this.unstakeTokens}
+      />
+    }
 
     return (
       <div>
