@@ -4,15 +4,13 @@ export const Navbar = () => {
   return (
     <div>
         <nav>
-            <img src="" alt="" />
+            <img src="" alt="logo" />
             <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">About</a>
-                </li>
+                <li>Submit Address</li>
+                <li>Vote Proposal</li>
             </ul>
+
+            <button>Connect Wallet</button>
 
         </nav>
     </div>
