@@ -1,6 +1,6 @@
 import './App.css';
-import { ProposalsSection } from './ProposalsSection';
-import { SubmitSection } from './SubmitSection';
+import { ProposalsSection } from './components/ProposalsSection';
+import { SubmitSection } from './components/SubmitSection';
 import { HowSection } from './components/HowSection';
 
 import { Navbar } from './components/Navbar';

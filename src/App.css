@@ -17,6 +17,12 @@
   display: flex;
 }
 
+h2 {
+  font-size: 2.5rem;
+  color: #3C66AE;
+  text-align: center;
+}
+
 
 /* //////////// NAVBAR SECTION ///////////// */
 nav {
@@ -93,4 +99,79 @@ nav ul {
 .top-container p {
   margin: 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* //////////// WHY SECTION ///////////// */
+.why-container {
+  padding: 5rem 2rem;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 2rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.why-grid h3 {
+  margin: 0;
+  color: #51AAE0;
+}
+
+/* //////////// HOW SECTION ///////////// */
+.how-container {
+  padding: 5rem 2rem 8rem;
+}
+
+.how-container ul {
+  text-align: left;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: square;
+}
+
+/* //////////// SUBMIT SECTION ///////////// */
+.submit-container {
+  background-color: black;
+  padding: 3rem 5rem;
+}
+
+.submit-container h3 {
+  font-size: 2rem;
+}
+
+.submit-container p {
+  width: 70%;
+}
+
+.submit-container input {
+  height: 3rem;
+  font-size: 1rem;
+  width: 50%;
+  padding-left: 0.5rem;
+  background-color: #0F0F0F;
+  border: 1px solid #51AAE0;
+  margin: 1.5rem 0;
+}
+
+.submit-container input::placeholder {
+  color: #3C66AE;
+}
+
+.submit-container input:focus {
+  outline: none;
+}
+
+.submit-btn {
+  padding: 0.5rem 1rem;
+  background-color: #51AAE0;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
 }
