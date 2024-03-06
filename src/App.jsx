@@ -1,4 +1,5 @@
 import './App.css';
+import { ProposalsSection } from './ProposalsSection';
 import { SubmitSection } from './SubmitSection';
 import { HowSection } from './components/HowSection';
 
@@ -14,6 +15,7 @@ function App() {
       <Why/>
       <HowSection/>
       <SubmitSection/>
+      <ProposalsSection/>
     </div>
   );
 }

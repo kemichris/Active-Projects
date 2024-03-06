@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
+
+
+/* Globall css */
+.primary-color {
+  color: #51AAE0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.secondary-color {
+  color: #3C66AE;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.txt-white {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.flex {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* //////////// NAVBAR SECTION ///////////// */
+nav {
+  align-items: center;
+  justify-content: space-between;
+  background-color: #EBEFF0;
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 2rem;
+  top: 0;
+  z-index: 3;
+}
+
+.logo {
+  width: 6rem;
+  height: 3rem;
+}
+
+nav ul {
+  list-style: none;
+  gap: 3rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.connect-btn {
+  border: 1px solid #51AAE0;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border-radius: 0.3rem;
+  font-weight: bold;
+}
+
+/* //////////// NAVBAR SECTION ///////////// */
+.top-container {
+  background-image: url("./assets/topImage.jpg");
+  background-size: cover;
+  background-position: 50%;
+  height: 36.875rem;
+  padding: 5rem 2.5rem 0;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value (0.5) to control darkness */
+  z-index: 1;
+}
+
+.top-container h1, .top-container p {
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  width: 50%;
+  z-index: 2; /* Ensures text is above the dark layer */
+}
+
+.top-container h1 {
+  font-size: 3rem;
+}
+
+.top-container p {
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
