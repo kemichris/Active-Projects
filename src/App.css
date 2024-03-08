@@ -1,5 +1,3 @@
-
-
 /* Globall css */
 .primary-color {
   color: #51AAE0;
@@ -15,6 +13,10 @@
 
 .flex {
   display: flex;
+}
+
+h1 {
+  font-size: 3rem;
 }
 
 h2 {
@@ -61,7 +63,7 @@ nav ul {
   font-weight: bold;
 }
 
-/* //////////// NAVBAR SECTION ///////////// */
+/* //////////// TOP SECTION ///////////// */
 .top-container {
   background-image: url("./assets/topImage.jpg");
   background-size: cover;
@@ -80,20 +82,19 @@ nav ul {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value (0.5) to control darkness */
+  background: rgba(0, 0, 0, 0.5);
+  /* Adjust the alpha value (0.5) to control darkness */
   z-index: 1;
 }
 
-.top-container h1, .top-container p {
+.top-container h1,
+.top-container p {
   align-items: center;
   gap: 0.5rem;
   position: relative;
   width: 50%;
-  z-index: 2; /* Ensures text is above the dark layer */
-}
-
-.top-container h1 {
-  font-size: 3rem;
+  z-index: 2;
+  /* Ensures text is above the dark layer */
 }
 
 .top-container p {
@@ -166,7 +167,8 @@ nav ul {
   outline: none;
 }
 
-.submit-btn, .vote-btn {
+.submit-btn,
+.vote-btn {
   padding: 0.5rem 1rem;
   background-color: #51AAE0;
   border: none;
@@ -229,7 +231,7 @@ nav ul {
   font-size: 1rem;
   padding: 0.5rem 3rem;
   background-color: transparent;
-  border:1px solid #3C66AE;
+  border: 1px solid #3C66AE;
   color: #3C66AE;
   position: fixed;
   bottom: 2%;
@@ -243,3 +245,111 @@ nav ul {
   border: none;
 }
 
+
+
+/* ////////// MEDIA RESPONSIVENESS ///////////////// */
+
+
+
+
+@media (max-width: 1000px) {
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  /* //////////// TOP SECTION ///////////// */
+  .top-container h1,
+  .top-container p {
+    width: 90%;
+  }
+
+  /* //////////// WHY SECTION ///////////// */
+  .why-container {
+    padding: 5rem 1.5rem;
+  }
+
+  .why-grid {
+
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* //////////// SUBMIT SECTION ///////////// */
+  .submit-container {
+    padding: 2rem 3rem;
+  }
+
+  .submit-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .submit-container p {
+    width: 90%;
+  }
+
+  .submit-container input {
+    height: 2.5rem;
+    width: 90%;
+  }
+
+  /* //////////// PROPOSAL SECTION ///////////// */
+  .proposal-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .proposal-card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  /* h1 {
+    font-size: 1.5rem;
+  } */
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  /* //////////// NAVBAR SECTION ///////////// */
+  nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo {
+    width: 4rem;
+    height: 2rem;
+  }
+  
+  nav ul {   
+    gap: 1.5rem;
+    font-size: 0.7rem;
+  }
+
+  /* //////////// TOP SECTION ///////////// */
+  .top-container {
+    padding: 5rem 1.5rem 0;
+  }
+
+  /* //////////// PROPOSAL SECTION ///////////// */
+  .proposal-card {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+  }
+
+  .vote-btn {
+    margin-left: 30%;
+  }
+
+  .check-winner {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.7rem;
+  }
+}
