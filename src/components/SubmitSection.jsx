@@ -3,8 +3,11 @@ import React, { useState } from 'react'
 // contract
 import ContractAbi from "../contract/contractAbi.json";
 import { ethers } from 'ethers';
+import { useSnackbar } from 'notistack';
+
 
 export const SubmitSection = () => {
+  const {enqueueSnackbar} = useSnackbar();
 
   const contractAddress = "0x48564fc514e458861BD7891Df840A37dB78386f2";
 
@@ -31,17 +34,21 @@ export const SubmitSection = () => {
       setVotersAddress('');
 
       console.log(votersAddress + "submited")
+      enqueueSnackbar("Address submitted", {variant: "success"});
+           
 
 
     } catch (error) {
       console.error('Error submitting voters address:', error);
+      enqueueSnackbar("Error submitting voters address:," + error, {variant: "success"});
+           
     }
 
   }
 
   const handleInputChange = (event) => {
     setVotersAddress(event.target.value);
-};
+  };
 
 
 

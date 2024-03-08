@@ -2,6 +2,8 @@ import React from 'react';
 
 import './App.css';
 
+import { SnackbarProvider } from 'notistack';
+
 // Components 
 import { ProposalsSection } from './components/ProposalsSection';
 import { SubmitSection } from './components/SubmitSection';
@@ -11,16 +13,20 @@ import Navbar from './components/Navbar'
 import { TopContainer } from './components/TopContainer';
 import { Why } from './components/Why';
 
-function App() {  
+function App() {
 
   return (
     <div>
-      <Navbar/>
-      <TopContainer/>
-      <Why/>
-      <HowSection/>
-      <SubmitSection/>
-      <ProposalsSection/>
+      <SnackbarProvider>
+        <Navbar />
+        <TopContainer />
+        <Why />
+        <HowSection />
+        <SubmitSection />
+        <ProposalsSection />
+
+      </SnackbarProvider>
+
     </div>
   );
 }

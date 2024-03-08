@@ -4,7 +4,10 @@ import Logo from "../assets/dappLogo.jpg"
 
 import { ethers } from 'ethers';
 
+import {useSnackbar } from 'notistack';
+
 const Navbar = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const [connected, setConnected] = useState(false);
   const [address, setAddress] = useState("");
 
@@ -43,6 +46,8 @@ const Navbar = () => {
       setConnected(signer);
       // set connected Address 
       setAddress(truncatedAddress);
+
+      enqueueSnackbar("Wallet Connected succesfully", {variant: "success"});
 
     } catch (error) {
       // catch error

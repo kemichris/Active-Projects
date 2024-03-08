@@ -3,10 +3,8 @@ import React, { useState } from 'react'
 // contract
 import ContractAbi from "../contract/contractAbi.json";
 import { ethers } from 'ethers';
-// import { SnackbarProvider, enqueueSnackbar } from 'notistack';
+import {useSnackbar } from 'notistack';
 import { wait } from '@testing-library/user-event/dist/utils';
-// import { errors } from 'web3';
-
 
 
 export const ProposalsSection = () => {
@@ -15,33 +13,48 @@ export const ProposalsSection = () => {
 
     const [value, setValue] = useState("");
 
+    const { enqueueSnackbar } = useSnackbar();
+
+    
+
 
     const handleInput = (event) => {
         const inputValue = event.target.checked ? parseInt(event.target.value, 10) : "";
         setValue(inputValue);
         console.log(inputValue);
+        if(inputValue === 0) {
+            enqueueSnackbar("Community Events Sponsorship selected, now Vote", {variant: "success"})
+        } else if ( inputValue === 1) {
+            enqueueSnackbar("Development Grant Program selected, now Vote", {variant: "success"})
+        } else if ( inputValue === 2) {
+            enqueueSnackbar("Educational Webinar Series selected, now Vote", {variant: "success"})
+        } else if ( inputValue === 3) {
+            enqueueSnackbar("Blockchain for Social Impact selected, now Vote", {variant: "success"})
+        } else if ( inputValue === 4) {
+            enqueueSnackbar("Security and Auditing Framework, now Vote", {variant: "success"})
+        }
     }
 
     //Checking the winning proposal
-    /*const winningProposal = async () => {
+    const winningProposal = async () => {
         try {
             const provider = new ethers.BrowserProvider(window.ethereum);
             await provider.send("eth_requestAccounts", []);
             const signer = await provider.getSigner();
             const votingContract = new ethers.Contract(contractAddress, ContractAbi, signer);
 
-            const winningName = votingContract.winningName();
+            const winningName = await votingContract.winningName();
 
-            // enqueueSnackbar(winningName + "project is leading", {
-            //     variant: "success"
-            // });
+            enqueueSnackbar(winningName + "project is leading", {
+                 variant: "success"
+            });
 
             console.log(winningName)
 
         } catch (error) {
             console.log("Error Message:", error.data)
         }
-    }*/
+    }
 
     const voteProposal = async (event) => {
         event.preventDefault();
@@ -55,28 +68,17 @@ export const ProposalsSection = () => {
             const votingContract = new ethers.Contract(contractAddress, ContractAbi, signer);
 
             console.log(receipt)
-            // const voterInfo = await votingContract.voters[address];
-            // const hasVoted = voterInfo.voted;
-            // console.log(hasVoted)
-
-            // if (hasVoted) {
-            //     console.log("Already Voted")
-
-            // } else {
-            //     //process the vote
-            //     console.log("voting...")
-
-            // }
-
             //proceed with voting
             const transaction = await votingContract.voteProposal(parseInt(value, 10));
 
             receipt = await wait(transaction);
-            console.log("vote submitted successfully");
-            // enqueueSnackbar("Vote Successful", {variant: "success"});
+            console.log(receipt)
+            enqueueSnackbar("vote successful", {variant: "success"});
+           
         } catch (error) {
-            // enqueueSnackbar(error.data.message, {variant: "error"});
-            console.log("Failed, reason", error)
+            enqueueSnackbar(error, {variant: "error"});
+            console.log("Failed, reason", error);
+           
         }
 
     }
@@ -122,6 +124,7 @@ export const ProposalsSection = () => {
                 <button type='submit' className='vote-btn txt-white'>Vote</button>
             </form>
 
+            <button className='check-winner' onClick={winningProposal}>Check Winner</button>
 
         </div>
     )
