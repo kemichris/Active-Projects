@@ -193,15 +193,19 @@ nav ul {
   gap: 3rem;
 }
 
-.proposal-card div {
+.proposal-card label {
   background-color: #0F0F0F;
   padding: 2rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
-.proposal-card div:hover {
+.proposal-card label:hover {
   transform: scale(1.05);
+}
+
+.proposal-card input {
+  display: none;
 }
 
 .proposal-card h3 {
