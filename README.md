@@ -8,7 +8,13 @@ The centralize system of voting has been proving to be ineffective and less tran
 
 ### What dapp can do
 
-. Users are able to submit there address for approval/
-. Approved address can then proceed to vote/
-. users can vote for any proposal of there choice./
-. users will be able to check vote result immediately and see the winner/
+. Users are able to submit there address for approval
+
+
+. Approved address can then proceed to vote.
+
+
+. users can vote for any proposal of there choice.
+
+
+. users will be able to check vote result immediately and see the winner
