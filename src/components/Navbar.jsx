@@ -52,6 +52,7 @@ const Navbar = () => {
     } catch (error) {
       // catch error
       console.log("Error Conneting:", error)
+      enqueueSnackbar("Error Conneting", error, {variant: "error"});
     }
   }
 
