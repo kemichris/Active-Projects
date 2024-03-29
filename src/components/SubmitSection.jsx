@@ -9,7 +9,7 @@ import { useSnackbar } from 'notistack';
 export const SubmitSection = () => {
   const {enqueueSnackbar} = useSnackbar();
 
-  const contractAddress = "0x42db1803A79e77AB477aDe77e20dA7bBde9a7e09";
+  const contractAddress = "0x0Cf4D7E930812a02ea119a02C5B4764D45b40026";
 
   const [votersAddress, setVotersAddress] = useState('');
 

@@ -60,15 +60,9 @@ const Navbar = () => {
     <div>
         <nav className='flex'>
             <img className='logo' src={Logo} alt="logo" />
-            {/* <ul className='flex primary-color'>
-                <li>Submit Address</li>
-                <li>Vote Proposal</li>
-            </ul> */}
-
             <button className='connect-btn primary-color' onClick={connectWallet}>
               {connected ? address : "Connect Wallet"}
             </button>
-
         </nav>
     </div>
   )
