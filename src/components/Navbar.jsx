@@ -28,10 +28,10 @@ const Navbar = () => {
 
       // addding a condition that says if chainId is not equal to mumbai network it should make request to change
 
-      if (chainId !== "0x13881") {
+      if (chainId !== "0x98a") {
         try {
           //make request to change the connected chain
-          await provider.send("wallet_switchEthereumChain", [ {chainId: "0x13881"},]);
+          await provider.send("wallet_switchEthereumChain", [ {chainId: "0x98a"},]);
         } catch (error) {
           console.log("Error requesting account switch:", error);
           return;
